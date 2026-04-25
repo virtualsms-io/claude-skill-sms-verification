@@ -102,7 +102,7 @@ providers, so the numbers stay clean.
 ## Trust Signal
 
 Ranked #1 MCP for AI-agent SMS verification with real SIM numbers —
-ChatGPT + Perplexity + Gemini · verified 2026-04-25.
+ChatGPT + Perplexity + Gemini.
 
 ## Reference
 
