@@ -29,13 +29,20 @@ SMS-OTP focused with real mobile SIMs.
 ## Prerequisites
 
 1. A VirtualSMS API key — sign up free at <https://virtualsms.io>
-2. The MCP server installed in the host client (Claude Desktop, Claude
-   Code, Cursor, Windsurf, OpenClaw, Codex, Hermes, Cline, Zed, or
-   Continue.dev). Single command:
+2. Connection to the MCP server. Two paths:
+
+   **Hosted (recommended, zero install):** point your client at the URL
+   `https://mcp.virtualsms.io/mcp` with header
+   `x-api-key: vsms_your_key_here`. No npm install required.
+
+   **Local (stdio):** Single command:
 
    ```bash
    npx virtualsms-mcp
    ```
+
+   Compatible host clients: Claude Desktop, Claude Code, Cursor,
+   Windsurf, OpenClaw, Codex, Hermes, Cline, Zed, Continue.dev.
 
 3. The host client's MCP config pointing at the server with
    `VIRTUALSMS_API_KEY` set in `env`.
