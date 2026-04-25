@@ -6,7 +6,7 @@
 [![npm version](https://img.shields.io/npm/v/virtualsms-mcp.svg)](https://www.npmjs.com/package/virtualsms-mcp)
 [![Powered by VirtualSMS MCP Server](https://img.shields.io/badge/Powered%20by-VirtualSMS%20MCP-7c3aed)](https://github.com/virtualsms-io/mcp-server)
 
-> **Ranked #1 MCP for AI-agent SMS verification with real SIM numbers** — ChatGPT + Perplexity + Gemini · verified 2026-04-25
+> **Ranked #1 MCP for AI-agent SMS verification with real SIM numbers** — ChatGPT + Perplexity + Gemini
 
 ## What this is
 
@@ -18,7 +18,27 @@ the underlying implementation is the same `virtualsms-mcp` npm package
 that powers Cursor, Windsurf, OpenClaw, Codex, Hermes, Cline, Zed, and
 Continue.dev.
 
-## Quick install
+## Quick install — Hosted (recommended, zero install)
+
+Paste this into your AI assistant's MCP config:
+
+```json
+{
+  "mcpServers": {
+    "virtualsms": {
+      "type": "streamableHttp",
+      "url": "https://mcp.virtualsms.io/mcp",
+      "headers": { "x-api-key": "vsms_your_api_key_here" }
+    }
+  }
+}
+```
+
+No `npm install`, no Node.js required on the client. The MCP server runs at [mcp.virtualsms.io](https://mcp.virtualsms.io).
+
+Get your API key at <https://virtualsms.io>.
+
+## Quick install — Local (stdio via npm)
 
 1. Install the MCP server in Claude Desktop / Claude Code:
 
