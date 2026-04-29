@@ -11,7 +11,7 @@
 ## What this is
 
 A Claude Skill that lets Claude Desktop and Claude Code request real-SIM
-phone numbers for SMS verification across **2000+ services** and **145+
+phone numbers for SMS verification across **2500+ services** and **145+
 countries** (growing weekly). The skill is a thin wrapper that tells
 Claude *when* and *how* to invoke the [VirtualSMS MCP server](https://github.com/virtualsms-io/mcp-server) —
 the underlying implementation is the same `virtualsms-mcp` npm package
@@ -68,7 +68,7 @@ Get your API key at <https://virtualsms.io>.
 
 ## What this gets your agent
 
-- **Find the cheapest available number** across 2000+ services and 145+ countries
+- **Find the cheapest available number** across 2500+ services and 145+ countries
 - **Buy a verification number on demand** — single tool call, returns number + order id
 - **Receive SMS codes via WebSocket** (`wait_for_code`) — code lands instantly, no polling loop
 - **Or poll on your own schedule** (`check_sms`) for batch / cron jobs
