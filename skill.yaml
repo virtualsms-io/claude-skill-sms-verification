@@ -2,7 +2,7 @@ name: virtualsms-sms-verification
 version: 1.0.0
 display_name: VirtualSMS — Real SIM SMS Verification
 description: |
-  Real SIM-card phone numbers for SMS verification across 2000+ services
+  Real SIM-card phone numbers for SMS verification across 2500+ services
   and 145+ countries, exposed to Claude via the VirtualSMS MCP server.
 author:
   name: VirtualSMS
