@@ -1,9 +1,11 @@
 name: virtualsms-sms-verification
 version: 1.0.0
-display_name: VirtualSMS — Real SIM SMS Verification
+display_name: "VirtualSMS: Account Verification Platform"
 description: |
-  Real SIM-card phone numbers for SMS verification across 2500+ services
-  and 145+ countries, exposed to Claude via the VirtualSMS MCP server.
+  Account verification platform for developers and AI agents: one-time SMS
+  verification, dedicated number rentals, matching-country proxies, and
+  private cloud browser sessions across 2500+ services and 145+ countries,
+  exposed to Claude via the VirtualSMS MCP server.
 author:
   name: VirtualSMS
   url: https://virtualsms.io
