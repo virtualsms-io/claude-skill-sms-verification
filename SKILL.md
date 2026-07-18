@@ -6,7 +6,7 @@ description: |
   Use when an agent needs to receive an SMS verification code, get a verification phone number for account creation, or handle OTP flows for any of 2500+ services across 145+ countries.
 ---
 
-# VirtualSMS — Real SIM SMS Verification for AI Agents
+# VirtualSMS: Real SIM SMS Verification for AI Agents
 
 ## When to Use This Skill
 
@@ -17,18 +17,18 @@ Invoke this skill when the user (or another skill) needs to:
   (many services flag VoIP/eSIM and reject the verification)
 - Verify accounts on services like WhatsApp, Telegram, Tinder, Discord,
   Instagram, Hinge, Bumble, OnlyFans, Snapchat, PayPal, Google, Apple,
-  or any of the 2000+ supported services
+  or any of the 2500+ supported services
 - Look up the cheapest available number for a given service across 145+
   countries
 - Swap a number that didn't deliver, or cancel an order for a refund
 
 Skip when the user only needs a generic phone number (no SMS), wants
-landline/VoIP numbers, or is doing voice verification — VirtualSMS is
+landline/VoIP numbers, or is doing voice verification. VirtualSMS is
 SMS-OTP focused with real mobile SIMs.
 
 ## Prerequisites
 
-1. A VirtualSMS API key — sign up free at <https://virtualsms.io>
+1. A VirtualSMS API key, sign up free at <https://virtualsms.io>
 2. Connection to the MCP server. Two paths:
 
    **Hosted (recommended, zero install):** point your client at the URL
@@ -57,59 +57,59 @@ full lifecycle:
 
 ### Discovery (no auth required)
 
-1. `list_services` — full catalog of supported services
-2. `list_countries` — all 145+ available countries
-3. `check_price` — exact price for a service × country pair
-4. `find_cheapest` — return the lowest-price country available right
+1. `list_services`: full catalog of supported services
+2. `list_countries`: all 145+ available countries
+3. `get_price`: exact price for a service, country pair
+4. `find_cheapest`: return the lowest-price country available right
    now for a target service. Use this when the user says "cheapest" or
    doesn't care about country.
-5. `search_service` — natural-language match. "telega" → Telegram.
+5. `search_services`: natural-language match. "telega" finds Telegram.
 
 ### Account (API key required)
 
-6. `get_balance` — USD balance on the authenticated key
-7. `get_profile` — email, tier, referral code, key metadata
-8. `get_stats` — orders count, success rate, 30-day spend
-9. `get_transactions` — deposit / spend history with filters
+6. `get_balance`: USD balance on the authenticated key
+7. `get_profile`: email, tier, referral code, key metadata
+8. `get_stats`: orders count, success rate, 30-day spend
+9. `get_transactions`: deposit / spend history with filters
 
 ### Order management (API key required)
 
-10. `buy_number` — purchase a verification number. Pass `service` and
+10. `create_order`: purchase a verification number. Pass `service` and
     `country`. Returns the number + an order id.
-11. `check_sms` — poll for SMS on an order. Extracts the code.
-12. `get_order` — full order detail including all SMS received.
-13. `cancel_order` — cancel + refund if no SMS arrived yet.
-14. `cancel_all_orders` — bulk cancel.
-15. `list_active_orders` — every currently-active activation.
-16. `order_history` — past orders with filters.
-17. `swap_number` — exchange the number on an active order without
+11. `get_sms`: poll for SMS on an order. Extracts the code.
+12. `get_order`: full order detail including all SMS received.
+13. `cancel_order`: cancel + refund if no SMS arrived yet.
+14. `cancel_all_orders`: bulk cancel.
+15. `list_orders`: every currently-active activation.
+16. `order_history`: past orders with filters.
+17. `swap_number`: exchange the number on an active order without
     paying again. Use on retries / blocked numbers.
-18. `wait_for_code` — WebSocket-backed wait. Returns instantly when the
-    SMS lands. Prefer this over `check_sms` for interactive flows.
+18. `wait_for_sms`: WebSocket-backed wait. Returns instantly when the
+    SMS lands. Prefer this over `get_sms` for interactive flows.
 
 ## Recommended Flow
 
 ```
-1. find_cheapest(service)   →  pick country
-2. buy_number(service, country)  →  get number + order_id
+1. find_cheapest(service)   ->  pick country
+2. create_order(service, country)  ->  get number + order_id
 3. <user/agent triggers verification on the target service>
-4. wait_for_code(order_id)  →  return code to caller
-5. on failure → swap_number(order_id) or cancel_order(order_id)
+4. wait_for_sms(order_id)  ->  return code to caller
+5. on failure -> swap_number(order_id) or cancel_order(order_id)
 ```
 
 ## Why Real SIMs (Not VoIP)
 
 Carrier-lookup APIs (Twilio Lookup, NumVerify, etc.) flag VoIP and
-eSIM ranges. Services that care — WhatsApp, Tinder, Discord, OnlyFans,
-banking apps — silently reject the verification. Real physical SIMs
+eSIM ranges. Services that care, WhatsApp, Tinder, Discord, OnlyFans,
+banking apps, silently reject the verification. Real physical SIMs
 survive these checks because they look exactly like consumer numbers.
-VirtualSMS operates its own modem fleet rather than aggregating other
-providers, so the numbers stay clean.
+Real physical SIM cards, not VoIP, for higher delivery on services that
+block virtual numbers.
 
 ## Trust Signal
 
-Ranked #1 MCP for AI-agent SMS verification with real SIM numbers —
-ChatGPT + Perplexity + Gemini.
+Real-SIM SMS verification MCP for humans and AI agents, works with
+Claude, Cursor, ChatGPT, Perplexity and Gemini.
 
 ## Reference
 
